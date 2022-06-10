@@ -1,0 +1,629 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>RSA加密算法 | Felix_Chen</title><meta name="keywords" content="加密,非对称加密,RSA"><meta name="author" content="Felix_Chen"><meta name="copyright" content="Felix_Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="RSA，如今最广泛使用的公钥加密算法。数字签名、数字证书、SSH、HTTPS的加密链接全是它的典型应用。RSA背后隐藏着什么？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA加密算法">
+<meta property="og:url" content="http://felixchen0707.cn/2022/05/18/RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Felix_Chen">
+<meta property="og:description" content="RSA，如今最广泛使用的公钥加密算法。数字签名、数字证书、SSH、HTTPS的加密链接全是它的典型应用。RSA背后隐藏着什么？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgtg.com/2022/06/03/n0TDc.webp">
+<meta property="article:published_time" content="2022-05-18T02:46:46.000Z">
+<meta property="article:modified_time" content="2022-05-18T02:46:46.000Z">
+<meta property="article:author" content="Felix_Chen">
+<meta property="article:tag" content="加密">
+<meta property="article:tag" content="非对称加密">
+<meta property="article:tag" content="RSA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgtg.com/2022/06/03/n0TDc.webp"><link rel="shortcut icon" href="https://i.imgtg.com/2022/06/06/n3ORs.jpg"><link rel="canonical" href="http://felixchen0707.cn/2022/05/18/RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery@2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RSA加密算法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-18 10:46:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom/fixed_comment.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_3400700_nu9xpfr21qk.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Felix_Chen" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.imgtg.com/2022/06/06/n3ORs.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youqing"></i><span> 博友</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-pengyouquan"></i><span> 好友文章</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-bozhu-"></i><span> 关于我</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recent/"><i class="fa-fw fas fa-clock-rotate-left"></i><span> 最近</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 信息</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-timeline"></i><span> 大事记</span></a></li><li><a class="site-page child" href="/thanks/"><i class="fa-fw iconfont icon-zhaozhixie2"></i><span> 致谢</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.imgtg.com/2022/06/03/n0TDc.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Felix_Chen</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 类别</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-youqing"></i><span> 博友</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-pengyouquan"></i><span> 好友文章</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-bozhu-"></i><span> 关于我</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recent/"><i class="fa-fw fas fa-clock-rotate-left"></i><span> 最近</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 信息</span></a></li><li><a class="site-page child" href="/history/"><i class="fa-fw fas fa-timeline"></i><span> 大事记</span></a></li><li><a class="site-page child" href="/thanks/"><i class="fa-fw iconfont icon-zhaozhixie2"></i><span> 致谢</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RSA加密算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-18T02:46:46.000Z" title="发表于 2022-05-18 10:46:46">2022-05-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-18T02:46:46.000Z" title="更新于 2022-05-18 10:46:46">2022-05-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="RSA加密算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h1><p>&emsp;&emsp;谈到加密算法，我们不得不谈一下密码学中加密算法的两个分支：<strong>对称加密</strong>和<strong>非对称加密</strong>。</p>
+<h2 id="对称加密算法（以单表替代密码为例）"><a href="#对称加密算法（以单表替代密码为例）" class="headerlink" title="对称加密算法（以单表替代密码为例）"></a>对称加密算法（以单表替代密码为例）</h2><p>&emsp;&emsp;我们假设Felix要向你们之间的某位读者发送一段信息$m$，为方便起见，我们假设这段信息是”THANKYOUFORFOLLOWINGME”。现在，为了使这段信息不被外人所知，需要对其加密。我们假设加密方式为：<strong>所有用后一位字母替代</strong>，那么上述的这段信息就被加密为：”UIBOLZPVGPSGPMMPXJOHNF”，这是<strong>不可读的</strong>。当读者接收到这段信息时，只需要将加密后的信息往前倒退一位，便可以得到原始信息。我们把原始信息称为<strong>明文</strong>，加密后的信息称为<strong>密文</strong>，加密方式（在上例中体现为字母的替代）称为<strong>加密算法</strong>，解密方式（在上例中体现为字母的替代）称为<strong>解密算法</strong>，加密时移动的位数1称为<strong>加密密钥</strong>，解密时移动的位数1称为<strong>解密密钥</strong>。</p>
+<p>&emsp;&emsp;上面这种加密方式一般被称为<strong>单表替代密码</strong>，上述的例子又是其中十分特殊的一种，称为<strong>凯撒密码</strong>。我们观察可以知道，加密密钥和解密密钥是相同的，我们把具有这种性质的加密算法称为<strong>对称加密算法</strong>。</p>
+<p>&emsp;&emsp;对称加密算法是有好处的：其计算量小，加密简单，用于加密和解密的密钥相同，算法只需要选取<strong>可逆映射</strong>即可。但对称加密也存在一些问题：双方在通信前需要互相商定密钥，并且在通信过程中，任何一方的密钥泄露都将使得所有通信被破解；其次，任何两者之间的通信都需要选取<strong>不同的密钥</strong>，这在通信网复杂的情况下，每个通信节点都需要储存数量庞大的密钥，给用户带来负担。</p>
+<p>&emsp;&emsp;当然，密钥泄露的问题不是不可解决的。我们可以在每一次通信都使用不同的密钥，这样，密文在理论上是<strong>牢不可破的</strong>。但是这又会带来问题，我们如何获得这么庞大数量的密钥呢？我们又如何储存呢？密钥的分发在这种情况下变成了棘手的问题。所以，<strong>一次一密</strong>的加密方式在实际应用中是不广泛的。</p>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>&emsp;&emsp;随即而来进入我们脑海的一种加密方式就是非对称加密，即<strong>加密密钥</strong>和<strong>解密密钥</strong>不相同的加密方式。我们一般称前者为<strong>公钥</strong>，后者为<strong>私钥</strong>，因为前者是公开给所有人的，后者是密文接收方自己保存的。我们知道，由于加密和解密是逆运算，我们是有可能通过暴力破解求出加密方式的逆运算的。所以，为了保证安全性，非对称加密的算法一般都<strong>十分复杂</strong>，运算量相比于对称加密算法繁琐得多，因此，非对称加密<strong>牺牲了加密效率，换来了更高的安全性</strong>。下面我们来讨论一下非对称加密中的典型加密方式，即RSA加密。</p>
+<h1 id="RSA加密算法"><a href="#RSA加密算法" class="headerlink" title="RSA加密算法"></a>RSA加密算法</h1><h2 id="基于的数学运算原理——模运算"><a href="#基于的数学运算原理——模运算" class="headerlink" title="基于的数学运算原理——模运算"></a>基于的数学运算原理——模运算</h2><p>&emsp;&emsp;首先我们来思考一个问题，有什么方式使得<strong>攻击者知道加密方式的情况下很难求算出其逆运算</strong>？有一种运算符合类似的性质：其正向运算十分简单，但逆运算极其复杂，它是模运算（Mod）。模运算就是我们一般说的求余。其正向运算是很简单的，例如</p>
+<script type="math/tex; mode=display">
+3^3\ \textrm{mod}\ 7=6,</script><p>完成这个运算只需要一个简单的除法即可，但是设想，如果给出的形式是方程，即</p>
+<script type="math/tex; mode=display">
+3^x\ \textrm{mod}\ 7=6,</script><p>求解满足上述方程的x的值，其运算是比较复杂的，因为我们不知道其商的值，也就不能快速利用乘法求算$x$，一般我们会使用枚举法求算其解。但是如果方程是</p>
+<script type="math/tex; mode=display">
+3^x\ \textrm{mod}\ 7156464845153468615315646=6,</script><p>这时候，枚举法也变得十分困难了，这个方程已经是<strong>计算上不可解的</strong>了。因此，模运算也被称为<strong>单向运算</strong>。RSA就是利用了模运算的这点性质。</p>
+<h2 id="加密算法和解密算法确定"><a href="#加密算法和解密算法确定" class="headerlink" title="加密算法和解密算法确定"></a>加密算法和解密算法确定</h2><p>&emsp;&emsp;知道了我们要使用模运算作为加密和解密算法，那么我们不妨假设明文信息是$m$（message），密文信息是$c$（cipher），公钥为$e$，私钥为$d$，于是我们可以得到</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    m^e\ \textrm{mod}\ N=c,\\
+    c^d\ \textrm{mod}\ N=m.
+\end{cases}</script><p>消去密文$c$，上式可化为</p>
+<script type="math/tex; mode=display">
+(m^e\ \textrm{mod}\ N)^d\ \textrm{mod}\ N=m,</script><p>可以证明上式等价于</p>
+<script type="math/tex; mode=display">
+m^{ed}\ \textrm{mod}\ N=m.</script><p>这个结论先放在这里，我们后续会使用到它。</p>
+<h2 id="欧拉函数和欧拉定理"><a href="#欧拉函数和欧拉定理" class="headerlink" title="欧拉函数和欧拉定理"></a>欧拉函数和欧拉定理</h2><p>&emsp;&emsp;为了充分理解RSA密码的数学原理，我们需要先提到<strong>欧拉函数</strong>和<strong>欧拉定理</strong>。</p>
+<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>&emsp;&emsp;首先介绍一下欧拉函数：假设给定一个正整数$n$，欧拉函数$\varphi(n)$的值是<strong>不超过$n$的与其互质的正整数的数目</strong>，例如不超过6的与6互质的正整数有1和5，那么我们就说，$\varphi(6)=2$。一般求解欧拉函数的值时，我们经常采用素因数分解的方式，让我们来看一个例子：求解$\varphi(100)$的值。我们对其质因数分解，得到</p>
+<script type="math/tex; mode=display">
+100=2^2\cdot 5^2。</script><p>那么其与其互质的整数数量为</p>
+<script type="math/tex; mode=display">
+\varphi(100)=100\times(1-\dfrac{1}{2})\times(1-\dfrac{1}{5})=40.</script><p>对于任意正整数$x$，假设其各个质因数为$p_i$，那么其欧拉函数的值为</p>
+<script type="math/tex; mode=display">
+\varphi(x)=x\prod^n_{i=1}(1-\dfrac{1}{p_i}).</script><p>显然，这样计算一个正整数的欧拉函数是很复杂的。但如果上式中的$x$是质数呢？问题就变得非常简单，因为这时$P_i={x}$。于是我们可以知道，质数$p$的欧拉函数为</p>
+<script type="math/tex; mode=display">
+\varphi(p)=p-1.</script><p>同样的，如果对于两个互质的正整数$p,q$，其乘积的欧拉函数就等于欧拉函数的乘积，即</p>
+<script type="math/tex; mode=display">
+\varphi(p\times q)=\varphi(p)\times \varphi(q).</script><p>这为我们求解欧拉函数提供了一个很好的解决方式。</p>
+<h3 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h3><p>&emsp;&emsp;欧拉定理是数论中的重要定理，我们这里只做介绍，不作证明。欧拉定理说的是，对于互质的两正整数$m$和$n$，满足以下关系恒成立：</p>
+<script type="math/tex; mode=display">
+m^{\varphi(n)}\equiv1\ (\textrm{mod}\ n),</script><p>我们对上式两边同时取$k$次幂，得到</p>
+<script type="math/tex; mode=display">
+m^{k\varphi(n)}\equiv1\ (\textrm{mod}\ n),</script><p>两边同时乘上$m$，有</p>
+<script type="math/tex; mode=display">
+m^{k\varphi(n)+1}\equiv m\ (\textrm{mod}\ n),</script><p>改写得到</p>
+<script type="math/tex; mode=display">
+m^{k\varphi(n)+1}\ \textrm{mod}\ n= m.</script><p>这是我们需要的欧拉定理的形式。</p>
+<h2 id="密钥的生成"><a href="#密钥的生成" class="headerlink" title="密钥的生成"></a>密钥的生成</h2><p>&emsp;&emsp;读者是否还记得我们在确定算法的时候找到了公钥和私钥的关系式？即</p>
+<script type="math/tex; mode=display">
+m^{ed}\ \textrm{mod}\ N=m.</script><p>与我们得到的欧拉定理的形式</p>
+<script type="math/tex; mode=display">
+m^{k\varphi(n)+1}\ \textrm{mod}\ n=m.</script><p>相比，我们发现，这时我们只需要使得</p>
+<script type="math/tex; mode=display">
+ed=k\varphi(N)+1，</script><p>即对于任何一个公钥$e$，我们私钥$d$的生成方式为计算$d$使得</p>
+<script type="math/tex; mode=display">
+ed\ \textrm{mod}\ \varphi(N)=1.</script><p>这时我们可以利用到一条数学定理：如果两正整数互质（这里表现为$d$与$\varphi(N)$互质），那么一定存在$d$满足上述关系，即$ed-1$被$\varphi(N)$整除，我们称这样的$d$为<strong>模反元素</strong>。</p>
+<p>&emsp;&emsp;所以，我们只要保证公钥$e$和求得的$\varphi(N)$互质，那么私钥$d$的存在性是不言而喻的。那么现在问题的关键就是：如何确定$\varphi(N)$和$e$的值。</p>
+<p>&emsp;&emsp;我们任意选取足够大的两个质数$p$和$q$，这是我们产生$\varphi(N)$的来源。我们令$N=p\cdot q$，这样的$N$通常是非常大的，理论上计算$\varphi(N)$需要对其进行质因数分解，然而对不知道$p$和$q$的人来说，这几乎是不可能的事情，因为$N$的质因数分解被证明是<strong>计算上不可行的</strong>了。但作为密钥的分发方，我们却很容易解出，因为我们选取的是两个质数，利用欧拉函数的性质，我们很容易知道</p>
+<script type="math/tex; mode=display">
+\varphi(N)=\varphi(p\cdot q)=\varphi(p)\cdot\varphi(q)=(p-1)(q-1).</script><p>有了这个解，我们只需要任意取一个和$\varphi(N)$互质的数就行了。由此，我们将$(e,N)$作为公钥发送出去，待我们计算出$d$后，保留$(d,N)$作为私钥即可。销毁$p$和$q$，这样这组公钥私钥几乎是无法被破解的了。</p>
+<h2 id="加密流程总结"><a href="#加密流程总结" class="headerlink" title="加密流程总结"></a>加密流程总结</h2><p>&emsp;&emsp;至此，我们已经知道了加密基于的数学原理和方法，这里我们来一些总结。</p>
+<hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">步骤</th>
+<th style="text-align:center">内容</th>
+<th style="text-align:center">生成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">选取两个不相等的足够大的质数</td>
+<td style="text-align:center">$p$和$q$</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">计算它们的乘积$N=p\times q$</td>
+<td style="text-align:center">$N$</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">利用$N$的因数计算其欧拉函数$\varphi(N)=(p-1)\times(q-1)$</td>
+<td style="text-align:center">$\varphi(N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">选取任一与$\varphi(N)$互质的整数$e$</td>
+<td style="text-align:center">公钥成员$e$</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">计算模反元素$d$：$ed\ \textrm{mod}\ \varphi(N)=1$</td>
+<td style="text-align:center">私钥成员$d$</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">公布公钥$(e,N)$</td>
+<td style="text-align:center">公钥$(e,N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">保存私钥$(d,N)$</td>
+<td style="text-align:center">私钥$(d,N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">销毁$p$和$q$</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>&emsp;&emsp;这就是RSA加密算法的原理和流程。</p>
+<h2 id="关于关键的-p-和-q"><a href="#关于关键的-p-和-q" class="headerlink" title="关于关键的$p$和$q$"></a>关于关键的$p$和$q$</h2><p>&emsp;&emsp;我们知道，如果两个数很接近，那么<strong>它们的差值一定很小</strong>。如果我们选取的$p$和$q$相差不大，那么RSA在这种情况下是<strong>很容易被攻破的</strong>。我们可以假设$p&gt;q$并且</p>
+<script type="math/tex; mode=display">
+p=a+b,\quad q=a-b,</script><p>那么大数$N$就可以被表示为</p>
+<script type="math/tex; mode=display">
+N=p\times q=(a+b)(a-b)=a^2-b^2.</script><p>由于$b$很小，所以$a$和$\sqrt{N}$的值非常接近，于是我们可以轻易倒推出用于产生密钥的$p$和$q$的值。这种情况下，RSA的安全性很低。但好在幸运的是，应用中不会产生这样的错误，所以RSA依然是很可靠的加密方式。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>&emsp;&emsp;从对于RSA彻底的分析来看，密码学在本质上是数学的实际应用。笔者在理解RSA密码加密的学习过程中，其实更多的时候都在了解其基于的数学原理，而并非大多数人所认为的加密过程。站在一个高度看RSA密码，其实其可靠性是由于<strong>人类对质因数分解掌握的不完全</strong>所保证的，因为知道公钥$(e,N)$，从理论上是可以破解私钥的，只是<strong>实际不可行</strong>罢了。当然，我们也不能因此质疑RSA密码的可靠性，因为密码学对密码是否可用的标准一直只有两条：<strong>破解密码耗费的资源大于信息本身</strong>，或者<strong>破解密码需要的时间远大于信息的时效性</strong>，而并没有将牢不可破作为其中的标准。</p>
+<p>&emsp;&emsp;RSA密码在历史上首次是被政府发现的，然后其就一直作为机密被尘封起来。直到1977年，三位麻省理工的数学家独立发掘出这种公钥私钥计算方法，然后才成为了如今广泛使用的RSA加密算法。这个算法也由他们的名字命名：Ron <strong>R</strong>ivest,Adi <strong>S</strong>hamir,Leonard <strong>A</strong>dleman。<br><img src="https://i.imgtg.com/2022/06/03/n0TDc.webp" alt="公开RSA的三位数学家"></p>
+<p>&emsp;&emsp;回过来看这个优美的表达式</p>
+<script type="math/tex; mode=display">
+d=\dfrac{k\varphi(N)+1}{e},</script><p><strong>一对看似无关的数字却连接着探索真相的答案，一个看似简单的算法却暗藏着千年未解的数学难题</strong>，这或许就是密码最终的魅力。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>RSA加密算法</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://felixchen0707.cn/2022/05/18/RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">http://felixchen0707.cn/2022/05/18/RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Felix_Chen</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2022-05-18</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2022-05-18</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8A%A0%E5%AF%86/">加密</a><a class="post-meta__tags" href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">非对称加密</a><a class="post-meta__tags" href="/tags/RSA/">RSA</a></div><div class="post_share"><div class="social-share" data-image="https://i.imgtg.com/2022/06/03/n0TDc.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1/ShareJS/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc@1/ShareJS/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/theme_img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/theme_img/wechat.jpg" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="/img/theme_img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/theme_img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/05/18/KMP%E7%AE%97%E6%B3%95/"><img class="prev-cover" src="https://i.imgtg.com/2022/06/03/nSwYj.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">KMP算法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/05/18/DES%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="DES加密算法"><img class="cover" src="https://i.imgtg.com/2022/06/10/1g9yl.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-18</div><div class="title">DES加密算法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Waline</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.imgtg.com/2022/06/06/n3ORs.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Felix_Chen</div><div class="author-info__description">Felix_Chen</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/felixchen0707"><i class="fab fa-github"></i><span>Follow me on Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/felixchen0707" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_45436186?type=blog" target="_blank" title="CSDN"><i class="iconfont icon-csdn"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客，在本站，您需注意：<ul type=circle><li>若想要发表评论，请尽可能选择Twikoo；</li><li>右下角罗列了可能能够增加您阅读体验的大部分功能；</li><li>进入说说界面音乐会中断，是正常现象。</li></ul>本站感谢您的帮助和支持。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-text">加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%88%E4%BB%A5%E5%8D%95%E8%A1%A8%E6%9B%BF%E4%BB%A3%E5%AF%86%E7%A0%81%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-text">对称加密算法（以单表替代密码为例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">非对称加密</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-text">RSA加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%9A%84%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A8%A1%E8%BF%90%E7%AE%97"><span class="toc-text">基于的数学运算原理——模运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E5%92%8C%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95%E7%A1%AE%E5%AE%9A"><span class="toc-text">加密算法和解密算法确定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%92%8C%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="toc-text">欧拉函数和欧拉定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="toc-text">欧拉定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E9%92%A5%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-text">密钥的生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="toc-text">加密流程总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%85%B3%E9%94%AE%E7%9A%84-p-%E5%92%8C-q"><span class="toc-text">关于关键的$p$和$q$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/10/Butterfly%E9%AD%94%E6%94%B9%E5%90%88%E9%9B%86/" title="Butterfly魔改合集"><img src="https://i.imgtg.com/2022/06/10/1ptBc.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly魔改合集"/></a><div class="content"><a class="title" href="/2022/06/10/Butterfly%E9%AD%94%E6%94%B9%E5%90%88%E9%9B%86/" title="Butterfly魔改合集">Butterfly魔改合集</a><time datetime="2022-06-10T11:13:00.000Z" title="发表于 2022-06-10 19:13:00">2022-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90/" title="数据结构试题分析"><img src="https://i.imgtg.com/2022/06/10/1m5ot.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构试题分析"/></a><div class="content"><a class="title" href="/2022/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90/" title="数据结构试题分析">数据结构试题分析</a><time datetime="2022-05-28T13:26:28.000Z" title="发表于 2022-05-28 21:26:28">2022-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/18/%E6%95%B0%E8%AE%BA%E5%92%8C%E6%9C%89%E9%99%90%E5%9F%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="数论和有限域的基本概念"><img src="https://i.imgtg.com/2022/06/03/nSLAF.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数论和有限域的基本概念"/></a><div class="content"><a class="title" href="/2022/05/18/%E6%95%B0%E8%AE%BA%E5%92%8C%E6%9C%89%E9%99%90%E5%9F%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="数论和有限域的基本概念">数论和有限域的基本概念</a><time datetime="2022-05-18T03:06:19.000Z" title="发表于 2022-05-18 11:06:19">2022-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/18/%E3%80%8A%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" title="《大学物理》知识点总结"><img src="https://i.imgtg.com/2022/06/10/1gshF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《大学物理》知识点总结"/></a><div class="content"><a class="title" href="/2022/05/18/%E3%80%8A%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" title="《大学物理》知识点总结">《大学物理》知识点总结</a><time datetime="2022-05-18T03:03:45.000Z" title="发表于 2022-05-18 11:03:45">2022-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/18/DES%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="DES加密算法"><img src="https://i.imgtg.com/2022/06/10/1g9yl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DES加密算法"/></a><div class="content"><a class="title" href="/2022/05/18/DES%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="DES加密算法">DES加密算法</a><time datetime="2022-05-18T02:58:16.000Z" title="发表于 2022-05-18 10:58:16">2022-05-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.imgtg.com/2022/06/03/n0TDc.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Felix_Chen</div><div class="footer_custom_text">博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 协议</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page@5/instantpage.js" type="module"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-comment-beta.vercel.app/',
+      region: 'us-east-1',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-comment-beta.vercel.app/',
+      region: 'us-east-1',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://unpkg.com/twikoo@1/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://unpkg.com/@waline/client/dist/waline.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-butterfly-comment-81qgxgonr-felixchen0707.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://unpkg.com/@waline/client/dist/waline.js').then(initWaline)
+  }
+}
+
+if ('Twikoo' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-comment-beta.vercel.app/',
+        region: 'us-east-1',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://unpkg.com/twikoo@1/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script data-pjax defer src="/js/custom/fixed_comment.js"></script><script async src="/js/diytitle.js"></script><script async src="https://npm.elemecdn.com/bowen-static/libs/grayscale/grayscale.js"></script><div class="aplayer no-destroy" data-id="8481998316" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://unpkg.com/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>window.$crisp = [];
+window.CRISP_WEBSITE_ID = "5c355f3b-cfcd-4fb2-b9ef-6289b2a7845d";
+(function () {
+  d = document;
+  s = d.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = 1;
+  d.getElementsByTagName("head")[0].appendChild(s);
+})();
+$crisp.push(["safe", true])
+
+if (true) {
+  $crisp.push(["do", "chat:hide"])
+  $crisp.push(["on", "chat:closed", function() {
+    $crisp.push(["do", "chat:hide"])
+  }])
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      $crisp.push(["do", "chat:hide"])
+    }
+    function chatBtnShow () {
+      $crisp.push(["do", "chat:show"])
+    }
+  }
+}</script><link rel="stylesheet" href="https://unpkg.com/aplayer@1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer@1/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1/metingjs/dist/Meting.min.js"></script><script src="https://unpkg.com/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/shuoshuo/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src="https://felixchen0707.cn/img/theme_img/Frame-Hexo-blue.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.1" title=""><img src="https://felixchen0707.cn/img/theme_img/Theme-Butterfly.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://pages.github.com/" style="margin-inline:5px" data-title="Github Pages为本站提供静态存储服务" title=""><img src="https://felixchen0707.cn/img/theme_img/Hosted-Github Pages-brightgreen.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://felixchen0707.cn/img/theme_img/Source-Github-d021d6.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://imgtg.com/" style="margin-inline:5px" data-title="本站使用tg图床加速图片资源访问" title=""><img src="https://felixchen0707.cn/img/theme_img/Figure Bed-tg-brightgreen.svg" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://felixchen0707.cn/img/theme_img/Copyright-BY--NC--SA 4.svg" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="//at.alicdn.com/t/font_3400700_nu9xpfr21qk.css"></script><!-- hexo injector body_end end --></body></html>

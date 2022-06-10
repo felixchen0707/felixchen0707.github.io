@@ -1,0 +1,47 @@
+s,
+del {
+  color: #8e8e8e;
+  text-decoration-color: #8e8e8e;
+}
+u {
+  color: #444;
+  text-decoration: none;
+  border-bottom: 1px solid #fe5f58;
+}
+emp {
+  color: #444;
+  border-bottom: 4px dotted #fe5f58;
+}
+wavy {
+  color: #444;
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-color: #fe5f58;
+}
+psw {
+  color: transparent;
+  background: #a1a1a1;
+  border-radius: 2px;
+}
+psw:hover {
+  color: #444;
+  background: none;
+}
+kbd {
+  display: inline-block;
+  color: #666;
+  font: bold 9pt arial;
+  text-decoration: none;
+  text-align: center;
+  padding: 2px 5px;
+  margin: 0 5px;
+  background: #eff0f2;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-top: 1px solid #f5f5f5;
+  -webkit-box-shadow: inset 0 0 20px #e8e8e8, 0 1px 0 #c3c3c3, 0 1px 0 #c9c9c9, 0 1px 2px #333;
+  -moz-box-shadow: inset 0 0 20px #e8e8e8, 0 1px 0 #c3c3c3, 0 1px 0 #c9c9c9, 0 1px 2px #333;
+  -webkit-box-shadow: inset 0 0 20px #e8e8e8, 0 1px 0 #c3c3c3, 0 1px 0 #c9c9c9, 0 1px 2px #333;
+  box-shadow: inset 0 0 20px #e8e8e8, 0 1px 0 #c3c3c3, 0 1px 0 #c9c9c9, 0 1px 2px #333;
+  text-shadow: 0 1px 0 #f5f5f5;
+}

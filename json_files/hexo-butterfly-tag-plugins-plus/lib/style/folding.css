@@ -1,0 +1,183 @@
+details.folding-tag {
+  display: block;
+  padding: 16px;
+  margin: 1em 0;
+  border-radius: 4px;
+  background: #fff;
+  font-size: var(--global-font-size);
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  border: 1px solid #f6f6f6;
+}
+details.folding-tag summary {
+  cursor: pointer;
+  padding: 16px;
+  margin: -16px;
+  border-radius: 4px;
+  color: rgba(68,68,68,0.7);
+  font-size: 0.875rem !important;
+  font-weight: bold;
+  position: relative;
+  line-height: normal;
+}
+details.folding-tag summary > p,
+details.folding-tag summary > h1,
+details.folding-tag summary > h2,
+details.folding-tag summary > h3,
+details.folding-tag summary > h4,
+details.folding-tag summary > h5,
+details.folding-tag summary > h6 {
+  display: inline;
+  border-bottom: none !important;
+}
+details.folding-tag summary:hover {
+  color: #444;
+}
+details.folding-tag summary:hover:after {
+  position: absolute;
+  content: '+';
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+}
+details.folding-tag >summary {
+  background: #f6f6f6;
+}
+details.folding-tag[purple] {
+  border-color: #fae7fd;
+}
+details.folding-tag[purple] >summary {
+  background: #fae7fd;
+}
+details.folding-tag[blue] {
+  border-color: #e8f4fd;
+}
+details.folding-tag[blue] >summary {
+  background: #e8f4fd;
+}
+details.folding-tag[cyan] {
+  border-color: #e8fafe;
+}
+details.folding-tag[cyan] >summary {
+  background: #e8fafe;
+}
+details.folding-tag[green] {
+  border-color: #ebf9ed;
+}
+details.folding-tag[green] >summary {
+  background: #ebf9ed;
+}
+details.folding-tag[yellow] {
+  border-color: #fff8e9;
+}
+details.folding-tag[yellow] >summary {
+  background: #fff8e9;
+}
+details.folding-tag[orange] {
+  border-color: #fdf1e7;
+}
+details.folding-tag[orange] >summary {
+  background: #fdf1e7;
+}
+details.folding-tag[red] {
+  border-color: #feefee;
+}
+details.folding-tag[red] >summary {
+  background: #feefee;
+}
+details.folding-tag[open] {
+  border-color: rgba(68,68,68,0.2);
+}
+details.folding-tag[open] >summary {
+  border-bottom: 1px solid rgba(68,68,68,0.2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+details.folding-tag[open][purple] {
+  border-color: rgba(208,23,238,0.3);
+}
+details.folding-tag[open][purple] >summary {
+  border-bottom-color: rgba(208,23,238,0.3);
+}
+details.folding-tag[open][blue] {
+  border-color: rgba(33,150,243,0.3);
+}
+details.folding-tag[open][blue] >summary {
+  border-bottom-color: rgba(33,150,243,0.3);
+}
+details.folding-tag[open][cyan] {
+  border-color: rgba(27,205,252,0.3);
+}
+details.folding-tag[open][cyan] >summary {
+  border-bottom-color: rgba(27,205,252,0.3);
+}
+details.folding-tag[open][green] {
+  border-color: rgba(61,197,80,0.3);
+}
+details.folding-tag[open][green] >summary {
+  border-bottom-color: rgba(61,197,80,0.3);
+}
+details.folding-tag[open][yellow] {
+  border-color: rgba(255,189,43,0.3);
+}
+details.folding-tag[open][yellow] >summary {
+  border-bottom-color: rgba(255,189,43,0.3);
+}
+details.folding-tag[open][orange] {
+  border-color: rgba(236,118,22,0.3);
+}
+details.folding-tag[open][orange] >summary {
+  border-bottom-color: rgba(236,118,22,0.3);
+}
+details.folding-tag[open][red] {
+  border-color: rgba(254,95,88,0.3);
+}
+details.folding-tag[open][red] >summary {
+  border-bottom-color: rgba(254,95,88,0.3);
+}
+details.folding-tag[open] >summary {
+  color: #444;
+  margin-bottom: 0;
+}
+details.folding-tag[open] >summary:hover:after {
+  content: '-';
+}
+details.folding-tag[open] >div.content {
+  padding: 16px;
+  margin: -16px;
+  margin-top: 0;
+}
+details.folding-tag[open] >div.content p>a:hover {
+  text-decoration: underline;
+}
+details.folding-tag[open] >div.content > p:first-child,
+details.folding-tag[open] >div.content > .tabs:first-child,
+details.folding-tag[open] >div.content > ul:first-child,
+details.folding-tag[open] >div.content > ol:first-child,
+details.folding-tag[open] >div.content > .highlight:first-child,
+details.folding-tag[open] >div.content > .note:first-child,
+details.folding-tag[open] >div.content > details:first-child {
+  margin-top: 0;
+}
+details.folding-tag[open] >div.content > p:last-child,
+details.folding-tag[open] >div.content > .tabs:last-child,
+details.folding-tag[open] >div.content > ul:last-child,
+details.folding-tag[open] >div.content > ol:last-child,
+details.folding-tag[open] >div.content > .highlight:last-child,
+details.folding-tag[open] >div.content > .note:last-child,
+details.folding-tag[open] >div.content > details:last-child {
+  margin-bottom: 0;
+}
+[data-theme="dark"] details[open] > div.content {
+  padding: 16px;
+  margin: -16px;
+  margin-top: 0;
+  background: #2c2d2d;
+  color: rgba(255,255,255,0.6);
+}
+[data-theme="dark"] details > summary {
+  filter: brightness(0.7);
+}
