@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>pygame的基础食用手册</title>
-      <link href="/posts/80982c4c/"/>
-      <url>/posts/80982c4c/</url>
-      
-        <content type="html"><![CDATA[<h1 id="什么是pygame"><a href="#什么是pygame" class="headerlink" title="什么是pygame"></a>什么是pygame</h1><p>&emsp;&emsp;Python是当下最为火热，且功能最为全面的一门编程语言。Python之所以深受大家喜爱，除了可以被应用到“人工智能”领域之外，还可以延伸到数据分析、Web 开发、自动化测试、自然语言处理、游戏开发等各个领域。这一切的实现得益于Python有一个<a href="https://pypi.org/">强大的第三方库</a>，这个第三方库允许我们随意下载各式各样的软件包，并且开箱即用，这大大提高了 Python 语言的编程效率和实用性。</p><p>&emsp;&emsp;Pygame 是一个专门用来开发游戏的Python模块，主要为开发、设计 2D 电子游戏而生，它是一个免费、开源的第三方软件包，支持多种操作系统，具有良好的跨平台性（比如 Windows、Linux、Mac 等）。</p><h1 id="安装pygame"><a href="#安装pygame" class="headerlink" title="安装pygame"></a>安装pygame</h1><p>&emsp;&emsp;在这一步前，请确保你已经安装了python环境。</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python学习笔记：列表和字典</title>
       <link href="/posts/fe46061e/"/>
       <url>/posts/fe46061e/</url>
