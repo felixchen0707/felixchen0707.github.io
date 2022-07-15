@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Felix_Chen</title>
-  <icon>http://felixchen0707.cn/icon.png</icon>
+  <icon>https://felixchen0707.cn/icon.png</icon>
   <subtitle>Felix_Chen</subtitle>
-  <link href="http://felixchen0707.cn/atom.xml" rel="self"/>
+  <link href="https://felixchen0707.cn/atom.xml" rel="self"/>
   
-  <link href="http://felixchen0707.cn/"/>
-  <updated>2022-07-07T16:00:00.000Z</updated>
-  <id>http://felixchen0707.cn/</id>
+  <link href="https://felixchen0707.cn/"/>
+  <updated>2022-07-15T14:43:37.892Z</updated>
+  <id>https://felixchen0707.cn/</id>
   
   <author>
     <name>Felix_Chen</name>
@@ -17,9 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ADN公益加速：国内CDN的替代方案体验</title>
+    <link href="https://felixchen0707.cn/posts/98c89914/"/>
+    <id>https://felixchen0707.cn/posts/98c89914/</id>
+    <published>2022-07-15T14:00:00.000Z</published>
+    <updated>2022-07-15T14:43:37.892Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;当jsdelivr在中国大陆的备案被注销之后，一瞬间很多将静态文件托管到jsd上的站点都相继出现排版错乱。这对于小站点的维护者是尤其不幸的消息。找寻稳定的CDN成为许多人的当务之急。大概一个月前，我和<a href="https://bowenyoung.cn/">Bowen</a>找到了一种方法可以使用elemecdn加速静态资源访问，这也终于让我的网站加载时长从将近一分钟下降到十秒左右。但是，最近elemecdn宣布不再回源，因此，我又陷入了无CDN选择方案的窘境(毕竟相关的资源价格不菲)。但<a href="https://arcitcgn.cn/">Arcitcgn</a>宣布反代unpkg并且设想开放公益项目ADN的消息吸引了我的注意。作为最早的一批使用者之一，使用过后决定向大家推荐这个项目。</p><h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>&emsp;&emsp;因为我的静态资源都是发布在npm上的，因此在这里主要讲一讲npm。只需要将url设置成<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://adn.arcitcgn.cn/&#123;$package_name&#125;@&#123;$version&#125;&#125;/&#123;$filename&#125;</span><br></pre></td></tr></table></figure><br>即可。更多的详细内容请参考：</p><div class="tag link"><a class="link-card" title="ADN公益加速" href="https://arcitcgn.cn/171.html"><div class="left"><img src="https://arcitcgn.cn/favicon.ico"/></div><div class="right"><p class="text">ADN公益加速</p><p class="url">https://arcitcgn.cn/171.html</p></div></a></div><h1 id="一些评价"><a href="#一些评价" class="headerlink" title="一些评价"></a>一些评价</h1><p>&emsp;&emsp;用了以后，直接国粹。这玩意是真的快。我想绝对不比之前使用过的CDN差，并且是免费使用的。当然，作为公益项目，我其实推广之余也会担心是否运维成本过高会使得这个公益项目称为原作者<a href="https://arcitcgn.cn/">Arcitcgn</a>的负担。因此希望大家在好用之余不要忘记要珍惜公益资源！有能力的也可以去支持一下！</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="推广" scheme="https://felixchen0707.cn/categories/%E6%8E%A8%E5%B9%BF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>《Hollow Knight(空洞骑士)》简评</title>
-    <link href="http://felixchen0707.cn/posts/957c52d5/"/>
-    <id>http://felixchen0707.cn/posts/957c52d5/</id>
+    <link href="https://felixchen0707.cn/posts/957c52d5/"/>
+    <id>https://felixchen0707.cn/posts/957c52d5/</id>
     <published>2022-07-07T16:00:00.000Z</published>
     <updated>2022-07-07T16:00:00.000Z</updated>
     
@@ -30,19 +55,19 @@
     
     
     
-    <category term="游戏短评" scheme="http://felixchen0707.cn/categories/%E6%B8%B8%E6%88%8F%E7%9F%AD%E8%AF%84/"/>
+    <category term="游戏短评" scheme="https://felixchen0707.cn/categories/%E6%B8%B8%E6%88%8F%E7%9F%AD%E8%AF%84/"/>
     
     
-    <category term="游戏" scheme="http://felixchen0707.cn/tags/%E6%B8%B8%E6%88%8F/"/>
+    <category term="游戏" scheme="https://felixchen0707.cn/tags/%E6%B8%B8%E6%88%8F/"/>
     
-    <category term="空洞骑士" scheme="http://felixchen0707.cn/tags/%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB/"/>
+    <category term="空洞骑士" scheme="https://felixchen0707.cn/tags/%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB/"/>
     
   </entry>
   
   <entry>
     <title>Django学习笔记(1)：Django的安装与准备</title>
-    <link href="http://felixchen0707.cn/posts/357997ca/"/>
-    <id>http://felixchen0707.cn/posts/357997ca/</id>
+    <link href="https://felixchen0707.cn/posts/357997ca/"/>
+    <id>https://felixchen0707.cn/posts/357997ca/</id>
     <published>2022-07-06T16:00:00.000Z</published>
     <updated>2022-07-14T03:56:58.844Z</updated>
     
@@ -53,19 +78,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Django" scheme="http://felixchen0707.cn/tags/Django/"/>
+    <category term="Python" scheme="https://felixchen0707.cn/tags/Python/"/>
     
-    <category term="Python" scheme="http://felixchen0707.cn/tags/Python/"/>
+    <category term="Django" scheme="https://felixchen0707.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>6月24日</title>
-    <link href="http://felixchen0707.cn/posts/b56d6855/"/>
-    <id>http://felixchen0707.cn/posts/b56d6855/</id>
+    <link href="https://felixchen0707.cn/posts/b56d6855/"/>
+    <id>https://felixchen0707.cn/posts/b56d6855/</id>
     <published>2022-06-23T16:00:00.000Z</published>
     <updated>2022-06-24T15:37:03.073Z</updated>
     
@@ -76,17 +101,17 @@
     
     
     
-    <category term="随笔" scheme="http://felixchen0707.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://felixchen0707.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="http://felixchen0707.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://felixchen0707.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Python学习笔记：列表和字典</title>
-    <link href="http://felixchen0707.cn/posts/fe46061e/"/>
-    <id>http://felixchen0707.cn/posts/fe46061e/</id>
+    <link href="https://felixchen0707.cn/posts/fe46061e/"/>
+    <id>https://felixchen0707.cn/posts/fe46061e/</id>
     <published>2022-06-15T16:00:00.000Z</published>
     <updated>2022-07-14T03:57:19.795Z</updated>
     
@@ -97,17 +122,17 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Python" scheme="http://felixchen0707.cn/tags/Python/"/>
+    <category term="Python" scheme="https://felixchen0707.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>转载：利用GitHub Action自动发布你的静态资源到npm</title>
-    <link href="http://felixchen0707.cn/posts/f17ebb0c/"/>
-    <id>http://felixchen0707.cn/posts/f17ebb0c/</id>
+    <link href="https://felixchen0707.cn/posts/f17ebb0c/"/>
+    <id>https://felixchen0707.cn/posts/f17ebb0c/</id>
     <published>2022-06-12T12:32:00.000Z</published>
     <updated>2022-06-22T03:03:22.834Z</updated>
     
@@ -118,19 +143,19 @@
     
     
     
-    <category term="转载" scheme="http://felixchen0707.cn/categories/%E8%BD%AC%E8%BD%BD/"/>
+    <category term="转载" scheme="https://felixchen0707.cn/categories/%E8%BD%AC%E8%BD%BD/"/>
     
     
-    <category term="npm" scheme="http://felixchen0707.cn/tags/npm/"/>
+    <category term="npm" scheme="https://felixchen0707.cn/tags/npm/"/>
     
-    <category term="Github" scheme="http://felixchen0707.cn/tags/Github/"/>
+    <category term="Github" scheme="https://felixchen0707.cn/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>Butterfly魔改合集</title>
-    <link href="http://felixchen0707.cn/posts/3dae3a99/"/>
-    <id>http://felixchen0707.cn/posts/3dae3a99/</id>
+    <link href="https://felixchen0707.cn/posts/3dae3a99/"/>
+    <id>https://felixchen0707.cn/posts/3dae3a99/</id>
     <published>2022-06-10T11:13:00.000Z</published>
     <updated>2022-07-14T03:56:43.472Z</updated>
     
@@ -141,19 +166,19 @@
     
     
     
-    <category term="本站记录" scheme="http://felixchen0707.cn/categories/%E6%9C%AC%E7%AB%99%E8%AE%B0%E5%BD%95/"/>
+    <category term="本站记录" scheme="https://felixchen0707.cn/categories/%E6%9C%AC%E7%AB%99%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="魔改" scheme="http://felixchen0707.cn/tags/%E9%AD%94%E6%94%B9/"/>
+    <category term="魔改" scheme="https://felixchen0707.cn/tags/%E9%AD%94%E6%94%B9/"/>
     
-    <category term="Butterfly" scheme="http://felixchen0707.cn/tags/Butterfly/"/>
+    <category term="Butterfly" scheme="https://felixchen0707.cn/tags/Butterfly/"/>
     
   </entry>
   
   <entry>
     <title>数据结构试题分析</title>
-    <link href="http://felixchen0707.cn/posts/528509f9/"/>
-    <id>http://felixchen0707.cn/posts/528509f9/</id>
+    <link href="https://felixchen0707.cn/posts/528509f9/"/>
+    <id>https://felixchen0707.cn/posts/528509f9/</id>
     <published>2022-05-28T13:26:28.000Z</published>
     <updated>2022-05-29T08:20:00.000Z</updated>
     
@@ -164,19 +189,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="数据结构" scheme="http://felixchen0707.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://felixchen0707.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="例题" scheme="http://felixchen0707.cn/tags/%E4%BE%8B%E9%A2%98/"/>
+    <category term="例题" scheme="https://felixchen0707.cn/tags/%E4%BE%8B%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>数论和有限域的基本概念</title>
-    <link href="http://felixchen0707.cn/posts/c8f73ffb/"/>
-    <id>http://felixchen0707.cn/posts/c8f73ffb/</id>
+    <link href="https://felixchen0707.cn/posts/c8f73ffb/"/>
+    <id>https://felixchen0707.cn/posts/c8f73ffb/</id>
     <published>2022-05-18T03:06:19.000Z</published>
     <updated>2022-05-18T03:06:19.000Z</updated>
     
@@ -187,19 +212,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="密码学" scheme="http://felixchen0707.cn/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <category term="密码学" scheme="https://felixchen0707.cn/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
-    <category term="数学" scheme="http://felixchen0707.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://felixchen0707.cn/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>《大学物理》知识点总结</title>
-    <link href="http://felixchen0707.cn/posts/db27cdf5/"/>
-    <id>http://felixchen0707.cn/posts/db27cdf5/</id>
+    <link href="https://felixchen0707.cn/posts/db27cdf5/"/>
+    <id>https://felixchen0707.cn/posts/db27cdf5/</id>
     <published>2022-05-18T03:03:45.000Z</published>
     <updated>2022-05-18T03:30:54.000Z</updated>
     
@@ -210,19 +235,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="大学物理" scheme="http://felixchen0707.cn/tags/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/"/>
+    <category term="大学物理" scheme="https://felixchen0707.cn/tags/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/"/>
     
-    <category term="知识点整理" scheme="http://felixchen0707.cn/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
+    <category term="知识点整理" scheme="https://felixchen0707.cn/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>DES加密算法</title>
-    <link href="http://felixchen0707.cn/posts/e407c7d6/"/>
-    <id>http://felixchen0707.cn/posts/e407c7d6/</id>
+    <link href="https://felixchen0707.cn/posts/e407c7d6/"/>
+    <id>https://felixchen0707.cn/posts/e407c7d6/</id>
     <published>2022-05-18T02:58:16.000Z</published>
     <updated>2022-06-05T13:27:00.000Z</updated>
     
@@ -233,21 +258,21 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="加密" scheme="http://felixchen0707.cn/tags/%E5%8A%A0%E5%AF%86/"/>
+    <category term="加密" scheme="https://felixchen0707.cn/tags/%E5%8A%A0%E5%AF%86/"/>
     
-    <category term="对称加密" scheme="http://felixchen0707.cn/tags/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
+    <category term="对称加密" scheme="https://felixchen0707.cn/tags/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
     
-    <category term="DES" scheme="http://felixchen0707.cn/tags/DES/"/>
+    <category term="DES" scheme="https://felixchen0707.cn/tags/DES/"/>
     
   </entry>
   
   <entry>
     <title>KMP算法</title>
-    <link href="http://felixchen0707.cn/posts/2da0528d/"/>
-    <id>http://felixchen0707.cn/posts/2da0528d/</id>
+    <link href="https://felixchen0707.cn/posts/2da0528d/"/>
+    <id>https://felixchen0707.cn/posts/2da0528d/</id>
     <published>2022-05-18T02:52:47.000Z</published>
     <updated>2022-05-18T02:46:46.000Z</updated>
     
@@ -258,19 +283,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="数据结构" scheme="http://felixchen0707.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://felixchen0707.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="算法" scheme="http://felixchen0707.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://felixchen0707.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>RSA加密算法</title>
-    <link href="http://felixchen0707.cn/posts/c8b4e820/"/>
-    <id>http://felixchen0707.cn/posts/c8b4e820/</id>
+    <link href="https://felixchen0707.cn/posts/c8b4e820/"/>
+    <id>https://felixchen0707.cn/posts/c8b4e820/</id>
     <published>2022-05-18T02:46:46.000Z</published>
     <updated>2022-05-18T02:46:46.000Z</updated>
     
@@ -281,14 +306,14 @@
     
     
     
-    <category term="学习笔记" scheme="http://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="加密" scheme="http://felixchen0707.cn/tags/%E5%8A%A0%E5%AF%86/"/>
+    <category term="加密" scheme="https://felixchen0707.cn/tags/%E5%8A%A0%E5%AF%86/"/>
     
-    <category term="非对称加密" scheme="http://felixchen0707.cn/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
+    <category term="非对称加密" scheme="https://felixchen0707.cn/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
     
-    <category term="RSA" scheme="http://felixchen0707.cn/tags/RSA/"/>
+    <category term="RSA" scheme="https://felixchen0707.cn/tags/RSA/"/>
     
   </entry>
   

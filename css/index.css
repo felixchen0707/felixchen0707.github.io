@@ -1371,7 +1371,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: HarmonyOS Sans SC;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1659,7 +1659,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container code {
   font-size: var(--global-font-size);
-  font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: JetBrains Mono !important;
 }
 #article-container code {
   padding: 2px 4px;
@@ -2375,6 +2375,9 @@ figure.highlight pre .javascript .function {
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap i {
   margin: 0 4px 0 0;
+}
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .fa-spinner {
+  margin: 0;
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-label {
   padding-right: 4px;
@@ -5131,7 +5134,7 @@ blockquote.pullquote.right {
   padding: 15px;
   border-radius: 3px;
 }
-.note.icon {
+.note.icon-padding {
   padding-left: 3em;
 }
 .note > .note-icon {
