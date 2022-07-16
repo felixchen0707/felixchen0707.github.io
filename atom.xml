@@ -6,7 +6,7 @@
   <link href="https://felixchen0707.cn/atom.xml" rel="self"/>
   
   <link href="https://felixchen0707.cn/"/>
-  <updated>2022-07-15T14:43:37.892Z</updated>
+  <updated>2022-07-16T11:30:00.000Z</updated>
   <id>https://felixchen0707.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://felixchen0707.cn/posts/98c89914/"/>
     <id>https://felixchen0707.cn/posts/98c89914/</id>
     <published>2022-07-15T14:00:00.000Z</published>
-    <updated>2022-07-15T14:43:37.892Z</updated>
+    <updated>2022-07-16T11:30:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;当jsdelivr在中国大陆的备案被注销之后，一瞬间很多将静态文件托管到jsd上的站点都相继出现排版错乱。这对于小站点的维护者是尤其不幸的消息。找寻稳定的CDN成为许多人的当务之急。大概一个月前，我和<a href="https://bowenyoung.cn/">Bowen</a>找到了一种方法可以使用elemecdn加速静态资源访问，这也终于让我的网站加载时长从将近一分钟下降到十秒左右。但是，最近elemecdn宣布不再回源，因此，我又陷入了无CDN选择方案的窘境(毕竟相关的资源价格不菲)。但<a href="https://arcitcgn.cn/">Arcitcgn</a>宣布反代unpkg并且设想开放公益项目ADN的消息吸引了我的注意。作为最早的一批使用者之一，使用过后决定向大家推荐这个项目。</p><h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>&emsp;&emsp;因为我的静态资源都是发布在npm上的，因此在这里主要讲一讲npm。只需要将url设置成<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://adn.arcitcgn.cn/&#123;$package_name&#125;@&#123;$version&#125;&#125;/&#123;$filename&#125;</span><br></pre></td></tr></table></figure><br>即可。更多的详细内容请参考：</p><div class="tag link"><a class="link-card" title="ADN公益加速" href="https://arcitcgn.cn/171.html"><div class="left"><img src="https://arcitcgn.cn/favicon.ico"/></div><div class="right"><p class="text">ADN公益加速</p><p class="url">https://arcitcgn.cn/171.html</p></div></a></div><h1 id="一些评价"><a href="#一些评价" class="headerlink" title="一些评价"></a>一些评价</h1><p>&emsp;&emsp;用了以后，直接国粹。这玩意是真的快。我想绝对不比之前使用过的CDN差，并且是免费使用的。当然，作为公益项目，我其实推广之余也会担心是否运维成本过高会使得这个公益项目称为原作者<a href="https://arcitcgn.cn/">Arcitcgn</a>的负担。因此希望大家在好用之余不要忘记要珍惜公益资源！有能力的也可以去支持一下！</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;当jsdelivr在中国大陆的备案被注销之后，一瞬间很多将静态文件托管到jsd上的站点都相继出现排版错乱。这对于小站点的维护者是尤其不幸的消息。找寻稳定的CDN成为许多人的当务之急。大概一个月前，我和<a href="https://bowenyoung.cn/">Bowen</a>找到了一种方法可以使用elemecdn加速静态资源访问，这也终于让我的网站加载时长从将近一分钟下降到十秒左右。但是，最近elemecdn不再回源，因此，我又陷入了无CDN选择方案的窘境(毕竟相关的资源价格不菲)。但<a href="https://arcitcgn.cn/">Arcitcgn</a>宣布反代jsd并且设想开放公益项目ADN的消息吸引了我的注意。作为最早的一批使用者之一，使用过后决定向大家推荐这个项目。</p><h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>&emsp;&emsp;因为我的静态资源都是发布在npm上的，因此在这里主要讲一讲npm。只需要将url设置成<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://adn.arcitcgn.cn/npm/&#123;$package_name&#125;@&#123;$version&#125;&#125;/&#123;$filename&#125;</span><br></pre></td></tr></table></figure><br>即可。更多的详细内容请参考：</p><div class="tag link"><a class="link-card" title="ADN公益加速" href="https://arcitcgn.cn/171.html"><div class="left"><img src="https://arcitcgn.cn/favicon.ico"/></div><div class="right"><p class="text">ADN公益加速</p><p class="url">https://arcitcgn.cn/171.html</p></div></a></div><h1 id="一些评价"><a href="#一些评价" class="headerlink" title="一些评价"></a>一些评价</h1><p>&emsp;&emsp;用了以后，直接国粹。这玩意是真的快。我想绝对不比之前使用过的CDN差，并且是免费使用的。当然，作为公益项目，我其实推广之余也会担心是否运维成本过高会使得这个公益项目成为原作者<a href="https://arcitcgn.cn/">Arcitcgn</a>的负担。因此希望大家在好用之余不要忘记要珍惜公益资源！有能力的也可以去支持一下！</p>]]></content>
     
     
       
@@ -81,9 +81,9 @@
     <category term="学习笔记" scheme="https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Python" scheme="https://felixchen0707.cn/tags/Python/"/>
-    
     <category term="Django" scheme="https://felixchen0707.cn/tags/Django/"/>
+    
+    <category term="Python" scheme="https://felixchen0707.cn/tags/Python/"/>
     
   </entry>
   
