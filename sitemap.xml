@@ -252,20 +252,6 @@
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/Python/</loc>
-    <lastmod>2022-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://felixchen0707.cn/tags/Django/</loc>
-    <lastmod>2022-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://felixchen0707.cn/tags/%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -287,6 +273,27 @@
   </url>
   
   <url>
+    <loc>https://felixchen0707.cn/tags/Django/</loc>
+    <lastmod>2022-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://felixchen0707.cn/tags/Python/</loc>
+    <lastmod>2022-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://felixchen0707.cn/tags/JavaScript/</loc>
+    <lastmod>2022-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://felixchen0707.cn/tags/%E9%AD%94%E6%94%B9/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -295,13 +302,6 @@
   
   <url>
     <loc>https://felixchen0707.cn/tags/Butterfly/</loc>
-    <lastmod>2022-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://felixchen0707.cn/tags/JavaScript/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -364,13 +364,6 @@
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/%E4%BE%8B%E9%A2%98/</loc>
-    <lastmod>2022-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://felixchen0707.cn/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -379,6 +372,13 @@
   
   <url>
     <loc>https://felixchen0707.cn/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2022-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://felixchen0707.cn/tags/%E4%BE%8B%E9%A2%98/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -401,14 +401,14 @@
 
   
   <url>
-    <loc>https://felixchen0707.cn/categories/%E6%8E%A8%E5%B9%BF/</loc>
+    <loc>https://felixchen0707.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://felixchen0707.cn/categories/%E6%8E%A8%E5%B9%BF/</loc>
     <lastmod>2022-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
