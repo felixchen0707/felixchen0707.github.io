@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>快速生成requirements.txt</title>
+      <link href="/posts/3c469774/"/>
+      <url>/posts/3c469774/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;众所周知，Python的运行效率是不高的。但为什么Python还是很广泛地被使用呢？那当然是成熟的第三方库的加持！可以说Python的第三方库只有你想不到，没有他做不到的。因此，对于一个自己的或者是clone来的项目，下载依赖包就显得非常之重要。</p><h1 id="快速生成requirement-txt"><a href="#快速生成requirement-txt" class="headerlink" title="快速生成requirement.txt"></a>快速生成requirement.txt</h1><p>&emsp;&emsp;首先我们用包管理工具pip安装生成requirements.txt的插件。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pipreqs</span><br></pre></td></tr></table></figure></p><p>&emsp;&emsp;然后一行简单的命令就可以快速生成requirements.txt啦！<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pipreqs . --encoding=utf-8 --force</span><br></pre></td></tr></table></figure></p><p>&emsp;&emsp;比起传统的<code>pip freeze &gt; requirement.txt</code>这句命令，上面可以做到虚拟环境之间相互隔离！也就是说，生成的requirements.txt只会包含当前项目用到的包，也很合常理对吧？</p><h1 id="偶尔水一水也不会有事的吧？"><a href="#偶尔水一水也不会有事的吧？" class="headerlink" title="偶尔水一水也不会有事的吧？"></a>偶尔水一水也不会有事的吧？</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript与HTML的内容交互</title>
       <link href="/posts/c7b9a647/"/>
       <url>/posts/c7b9a647/</url>
