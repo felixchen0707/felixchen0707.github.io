@@ -270,14 +270,14 @@
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/Python/</loc>
+    <loc>https://felixchen0707.cn/tags/%E9%AD%94%E6%94%B9/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/Django/</loc>
+    <loc>https://felixchen0707.cn/tags/Butterfly/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -305,14 +305,14 @@
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/%E9%AD%94%E6%94%B9/</loc>
+    <loc>https://felixchen0707.cn/tags/Django/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/Butterfly/</loc>
+    <loc>https://felixchen0707.cn/tags/Python/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -340,6 +340,13 @@
   </url>
   
   <url>
+    <loc>https://felixchen0707.cn/tags/WebSocket/</loc>
+    <lastmod>2022-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://felixchen0707.cn/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -354,7 +361,14 @@
   </url>
   
   <url>
-    <loc>https://felixchen0707.cn/tags/WebSocket/</loc>
+    <loc>https://felixchen0707.cn/tags/npm/</loc>
+    <lastmod>2022-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://felixchen0707.cn/tags/Github/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -369,20 +383,6 @@
   
   <url>
     <loc>https://felixchen0707.cn/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2022-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://felixchen0707.cn/tags/npm/</loc>
-    <lastmod>2022-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://felixchen0707.cn/tags/Github/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -433,6 +433,13 @@
   </url>
   
   <url>
+    <loc>https://felixchen0707.cn/categories/%E6%9C%AC%E7%AB%99%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -441,13 +448,6 @@
   
   <url>
     <loc>https://felixchen0707.cn/categories/%E6%8E%A8%E5%B9%BF/</loc>
-    <lastmod>2022-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://felixchen0707.cn/categories/%E6%9C%AC%E7%AB%99%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
